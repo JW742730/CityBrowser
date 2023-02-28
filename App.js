@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { Link, NavigationContainer, StackActions } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Button from "./Button";
+import * as WebBrowser from 'expo-web-browser';
 
 SplashScreen.preventAutoHideAsync();
 setTimeout(SplashScreen.hideAsync, 2000);
@@ -19,6 +21,9 @@ function ArtPage() {
     <View style={styles.container}>
       
       <Image source={artPicture} style={styles.placePictures} />
+      <Button info onPress={() => {{WebBrowser.openBrowserAsync("https://www.artic.edu/")}}}>
+        More Information
+      </Button>
         
     </View>
   )
@@ -29,7 +34,9 @@ function MilePage() {
     <View style={styles.container}>
       
       <Image source={milePicture} style={styles.placePictures} />
-        
+      <Button info onPress={() => {{WebBrowser.openBrowserAsync("https://www.themagnificentmile.com/")}}}>
+        More Information
+      </Button>  
     </View>
   )
 }
@@ -39,7 +46,9 @@ function PierPage() {
     <View style={styles.container}>
       
       <Image source={pierPicture} style={styles.placePictures} />
-        
+      <Button info onPress={() => {{WebBrowser.openBrowserAsync("https://navypier.org/")}}}>
+        More Information
+      </Button>  
     </View>
   )
 }
@@ -49,7 +58,9 @@ function WaterPage() {
     <View style={styles.container}>
       
       <Image source={waterPicture} style={styles.placePictures} />
-        
+      <Button info onPress={() => {{WebBrowser.openBrowserAsync("https://www.chicago.gov/city/en/depts/dca/supp_info/city_gallery_in_thehistoricwatertower.html")}}}>
+        More Information
+      </Button>  
     </View>
   )
 }
@@ -59,7 +70,9 @@ function WillisPage() {
     <View style={styles.container}>
       
       <Image source={willisPicture} style={styles.placePictures} />
-        
+      <Button info onPress={() => {{WebBrowser.openBrowserAsync("https://www.willistower.com/")}}}>
+        More Information
+      </Button>  
     </View>
   )
 }
@@ -67,6 +80,7 @@ function WillisPage() {
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName='Art Institute of Chicago'
@@ -107,8 +121,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   placePictures: {
-    height: 480,
-    width: 320,
+    height: 360,
+    width: 240,
     
+  },
+  Button: {
+    marginTop: 20,
   }
 });

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CityNavigation",
-    "slug": "CityNavigation",
+    "name": "CityBrowser",
+    "slug": "CityBrowser",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -31,3 +31,4 @@
     }
   }
 }
+ 
